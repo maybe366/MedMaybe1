@@ -23,7 +23,7 @@ if (token) {
 	})
 }
 document.addEventListener('DOMContentLoaded', () => {
-	const API_URL = 'http://localhost:5000/api'
+	const API_URL = 'https://medmaybe1-7.onrender.com'
 	const doctorsListDiv = document.getElementById('public-doctors-list')
 
 	const fetchDoctors = async () => {
