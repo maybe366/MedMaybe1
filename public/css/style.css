@@ -1,0 +1,601 @@
+/* ==========================================================================
+   1. Базовые стили и переменные
+   ========================================================================== */
+
+/* Определяем цветовую палитру в CSS-переменных для удобства */
+:root {
+    --primary-color: #4361EE;
+    --accent-color: #F72585;
+    --background-color: #F8F9FA;
+    --text-color: #212529;
+    --light-text-color: #6c757d;
+    --card-bg-color: #FFFFFF;
+    --border-color: #dee2e6;
+    --success-color: #00b09b;
+    --error-color: #ff5f6d;
+}
+
+/* Глобальные стили для всего документа */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Новый, более современный шрифт */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* ==========================================================================
+   2. Стили для форм входа и регистрации
+   ========================================================================== */
+
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.form-container {
+    background-color: var(--card-bg-color);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.form-container h1 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--light-text-color);
+    font-weight: 500;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+.form-container p {
+    margin-top: 1.5rem;
+    color: var(--light-text-color);
+}
+
+/* ==========================================================================
+   3. Стили для кнопок
+   ========================================================================== */
+
+.btn {
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #3a53c9; /* Чуть темнее основного */
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--light-text-color);
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* ==========================================================================
+   4. Стили для дашборда и общих элементов
+   ========================================================================== */
+
+.dashboard-header {
+    width: 100%;
+    background-color: var(--card-bg-color);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.user-info {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.profile-link {
+    margin-left: 1.5rem;
+    font-weight: 500;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 100px auto 2rem auto; /* Отступ от хедера */
+    padding: 0 2rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 2rem 0;
+}
+
+/* ==========================================================================
+   5. Стили для карточек (врачи, профиль)
+   ========================================================================== */
+   
+.card {
+    background-color: var(--card-bg-color);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+}
+
+.doctors-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.doctor-card {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(67, 97, 238, 0.15);
+}
+
+.doctor-card h3 {
+    margin: 1rem 0 0.5rem 0;
+}
+
+.doctor-card p {
+    color: var(--light-text-color);
+    margin: 0;
+}
+
+/* Добавим иконку врача */
+.doctor-card::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f0f0"; /* иконка fa-user-md */
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    display: block;
+}
+
+/* ==========================================================================
+   6. Стили для расписания, слотов и списков
+   ========================================================================== */
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    overflow: hidden; /* для скругления углов */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.schedule-table th, .schedule-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.schedule-table th {
+    background-color: #f1f3f5;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.schedule-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+#slots-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.slot-btn {
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--primary-color);
+    background-color: #e9ecef;
+    color: var(--primary-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.slot-btn:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.item-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.item-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    background-color: #fff;
+}
+
+.item-list li.booked {
+    background-color: #f8f9fa;
+    color: var(--light-text-color);
+}
+
+.btn-delete {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--error-color);
+    background-color: transparent;
+    color: var(--error-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-delete:hover {
+    background-color: var(--error-color);
+    color: #fff;
+}
+
+/* ==========================================================================
+   7. Стили для админ-панели и прочего
+   ========================================================================== */
+
+.admin-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+.admin-section {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+}
+.form-inline {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+}
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: var(--primary-color);
+    animation: spin 1s ease infinite;
+    margin: 2rem auto;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 768px) {
+    .admin-panel {
+        grid-template-columns: 1fr;
+    }
+    .form-inline {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+/* ==========================================================================
+   8. НОВЫЕ СТИЛИ ДЛЯ ШАПКИ И АВАТАРА
+   ========================================================================== */
+
+/* Переопределяем стиль основной шапки, делаем ее компактнее */
+.dashboard-header {
+    padding: 0.75rem 2rem; /* Уменьшаем вертикальные отступы */
+    z-index: 1000;
+}
+
+/* Стили для логотипа слева */
+.header-logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Контейнер для действий пользователя справа */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Стиль для круглого аватара */
+.user-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Делает элемент круглым */
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.user-avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
+}
+
+/* Новый стиль для кнопки выхода */
+.btn-logout {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--light-text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    border-radius: 8px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-logout:hover {
+    background-color: #e9ecef;
+    color: var(--text-color);
+}
+
+/* Скрываем текст "Выйти" на маленьких экранах для компактности */
+@media (max-width: 768px) {
+    .btn-logout span {
+        display: none;
+    }
+    .header-logo a {
+        font-size: 1rem; /* Уменьшаем лого */
+    }
+}
+/* Стили для кнопки отмены записи */
+.btn-cancel {
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--accent-color); /* Используем акцентный цвет */
+    background-color: transparent;
+    color: var(--accent-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+.btn-cancel:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+/* ==========================================================================
+   9. СТИЛИ ДЛЯ ПУБЛИЧНОЙ ГЛАВНОЙ СТРАНИЦЫ
+   ========================================================================== */
+   .public-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+}
+.public-header-nav {
+    display: flex;
+    gap: 1rem;
+}
+.btn.btn-secondary-outline {
+    background-color: transparent;
+    border: 2px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.8rem 1.5rem; /* чуть меньше паддинг */
+}
+.btn.btn-secondary-outline:hover {
+    background-color: #f1f3f5;
+    border-color: #f1f3f5;
+    transform: none;
+}
+.hero-section {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+.hero-section h1 {
+    font-size: 3rem;
+}
+.hero-section p {
+    font-size: 1.2rem;
+    color: var(--light-text-color);
+    max-width: 600px;
+    margin: 1rem auto;
+}
+.doctors-section h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2.5rem;
+}
+.doctors-list-public {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+.doctor-profile-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.doctor-photo {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.doctor-info {
+    padding: 1.5rem;
+}
+.doctor-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-color);
+}
+.specialization {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.doctor-details {
+    font-size: 0.95rem;
+    color: var(--light-text-color);
+}
+.doctor-details p {
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.doctor-details i {
+    color: var(--accent-color);
+}
+/* ==========================================================================
+   10. ОБНОВЛЕННЫЕ СТИЛИ ДЛЯ НАВИГАЦИИ В ШАПКЕ
+   ========================================================================== */
+
+/* Сделаем логотип более гибким контейнером */
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Расстояние между логотипом и ссылкой на дашборд */
+}
+
+/* Стилизуем новую ссылку на дашборд */
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: var(--light-text-color);
+    padding: 0.5rem 0;
+    position: relative; /* для создания эффекта подчеркивания */
+}
+
+/* Эффект подчеркивания при наведении */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-link:hover {
+    color: var(--text-color); /* меняем цвет текста при наведении */
+}
+
+/* Адаптивность для навигации */
+@media (max-width: 768px) {
+    /* На маленьких экранах скрываем текст, оставляем только иконки */
+    .header-logo a span, .nav-link span {
+        display: none;
+    }
+    .header-logo {
+        gap: 1.5rem;
+    }
+}

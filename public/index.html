@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя Клиника - Главная</title>
+    <!-- Подключаем все стили и шрифты, как и в других файлах -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="public-header">
+        <div class="header-logo">
+            <a href="index.html">
+                <i class="fas fa-clinic-medical"></i> MedMaybe
+            </a>
+        </div>
+    
+        <!-- Навигация для ГОСТЯ (показывается по умолчанию) -->
+        <div id="guest-nav" class="public-header-nav">
+            <a href="login.html" class="btn btn-secondary-outline">Войти</a>
+            <a href="register.html" class="btn">Регистрация</a>
+        </div>
+    
+        <!-- Навигация для АВТОРИЗОВАННОГО ПОЛЬЗОВАТЕЛЯ (скрыта по умолчанию) -->
+        <div id="user-nav" class="header-actions" style="display: none;">
+            <a href="dashboard.html" class="nav-link">
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Панель управления</span>
+            </a>
+            <a href="profile.html" class="user-avatar" id="user-avatar-main"></a>
+            <button id="logout-btn-main" class="btn-logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Выйти</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <h1>Профессиональная забота о вашем здоровье</h1>
+            <p>Запишитесь на прием к лучшим специалистам нашего города онлайн.</p>
+        </section>
+
+        <section class="doctors-section">
+            <h2>Наши специалисты</h2>
+            <div id="public-doctors-list" class="doctors-list-public">
+                <!-- Сюда будут загружаться карточки врачей -->
+                <div class="spinner"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/home.js"></script>
+</body>
+</html>
