@@ -1,7 +1,7 @@
 // public/js/profile.js
 
 // --- ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ И КОНСТАНТЫ ---
-const API_URL = 'https://medmaybe1-7.onrender.com'
+const API_URL = 'https://medmaybe1-7.onrender.com/api'
 const token = localStorage.getItem('token')
 const profileDetailsDiv = document.getElementById('profile-details')
 const appointmentsHistoryDiv = document.getElementById('appointments-history')

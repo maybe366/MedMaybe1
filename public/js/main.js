@@ -1,6 +1,6 @@
 // js/main.js
 
-const API_URL = 'https://medmaybe1-7.onrender.com' // Базовый URL нашего API
+const API_URL = 'https://medmaybe1-7.onrender.com/api' // Базовый URL нашего API
 
 // --- Получаем элементы форм и сообщений ---
 const registerForm = document.getElementById('register-form')

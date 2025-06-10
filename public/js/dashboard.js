@@ -1,7 +1,7 @@
 // public/js/dashboard.js
 
 // --- КОНСТАНТЫ И ПЕРЕМЕННЫЕ ---
-const API_URL = 'https://medmaybe1-7.onrender.com'
+const API_URL = 'https://medmaybe1-7.onrender.com/api'
 const token = localStorage.getItem('token')
 const userEmailSpan = document.getElementById('user-email')
 const logoutBtn = document.getElementById('logout-btn')
